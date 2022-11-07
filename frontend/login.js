@@ -13,12 +13,11 @@ async function start() {
         document.getElementById('login_button').onclick = async () => {
             const email = document.getElementById('email_input').value;
             const password = document.getElementById('password_input').value;
-            await login(email, password);
-    
+            await login(email, password)
+
             // Here, we reset the input placeholder.
             document.getElementById('email_input').value = "";
             document.getElementById('password_input').value = "";
-            document.location.reload();
         }
         return;
     }
@@ -46,9 +45,10 @@ async function login(email, password) {
         }).then(res => {
             console.log("Succesfully connected");
             localStorage.setItem("token", res.data.token);
+            document.location.reload();
         });
     } catch {
-        alert('Impossible to log in. Please check your credentials.');
+        swal("Impossible to log in.", "Please check your credentials.", "error");
     };
 };
 

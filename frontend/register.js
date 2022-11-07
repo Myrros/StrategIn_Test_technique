@@ -11,14 +11,12 @@ async function start() {
         // If the user is not connected, we display the html part for not connected users and we prepare the register button.
         document.getElementById('part_not_log').style.display = "block";
         document.getElementById('register_button').onclick = async () => {
-            const email = document.getElementById('email_input').value;
-            const password = document.getElementById('password_input').value;
-            await register(email, password);
+            console.log("ok 0");
+            register_user();
     
             // Here, we reset the input placeholder.
             document.getElementById('email_input').value = "";
             document.getElementById('password_input').value = "";
-            document.location.reload();
         }
         return;
     }
@@ -31,6 +29,48 @@ async function start() {
         window.localStorage.clear();
         document.location.reload()
     };
+}
+
+function register_user() {
+    const email = document.getElementById('email_input').value;
+    const password = document.getElementById('password_input').value;
+
+    // We check that the email is valide ( [x char]@[x char].[2-3 char] )
+    if (!validate_email(email)) {
+        swal("Account could not be created.", "Please enter a valid email.", "error");
+        return;
+    }
+
+    // We check that the password is valid (8 char long, 1 letter uppercase, 1 lowercase, 1 number)
+    if (!validate_password(password)) {
+        swal("Account could not be created.", "Please enter a valid password (8 characters, 1 number, 1 lowercase letter, 1 uppercase letter).", "error");
+        return;
+    }
+    swal({
+        title: "Account succesfully created !",
+        type: "success"
+    });
+
+    // If both inputs are correct, we register the user.
+    register(email, password);
+}
+
+// This function is used to check the email input using regex.
+function validate_email(email) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+    {
+        return true;
+    }
+        return false;
+}
+
+// This function is used to check the password input using regex.
+function validate_password(password) {
+    if (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/.test(password))
+    {
+        return true;
+    }
+        return false;
 }
 
 // This function takes the information entered as inputs and create an account out of them.
@@ -48,7 +88,7 @@ async function register(email, password) {
             console.log(res.data);
         });
     } catch {
-        alert('Impossible to register. The email address may already be taken.');
+        swal("Impossible to register.", "The email address may already be taken.");
     };
 };
 
