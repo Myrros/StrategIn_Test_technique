@@ -47,7 +47,7 @@ function register_user() {
         return;
     }
     swal({
-        title: "Account succesfully created !",
+        title: "Account successfully created !",
         type: "success"
     });
 
