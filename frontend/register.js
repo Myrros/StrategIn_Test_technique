@@ -43,7 +43,7 @@ function register_user() {
 
     // We check that the password is valid (8 char long, 1 letter uppercase, 1 lowercase, 1 number)
     if (!validate_password(password)) {
-        swal("Account could not be created.", "Please enter a valid password (8 characters, 1 number, 1 lowercase letter, 1 uppercase letter).", "error");
+        swal("Account could not be created.", "Please enter a valid password (At least:\n-8 characters,\n-1 number,\n-1 lowercase letter,\n-1 uppercase letter.)", "error");
         return;
     }
     swal({
@@ -66,7 +66,7 @@ function validate_email(email) {
 
 // This function is used to check the password input using regex.
 function validate_password(password) {
-    if (/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/.test(password))
+    if (/^(?=.*[0-9])(?=.*[a-z])(?=.*\W)(?=.*[A-Z])([\w|\W]{8,})$/.test(password))
     {
         return true;
     }
