@@ -2,7 +2,7 @@
 
 Here is my work for Strateg'In technical test.
 
-You will need to run `npm i` in the `./frondend` directory.
+You will need to run `npm i` in the `./backenddend` directory.
 
 Start the server by entering `node server.js` in a terminal in the `./backend` directory.
 
