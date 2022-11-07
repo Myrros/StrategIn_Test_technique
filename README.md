@@ -1,8 +1,9 @@
-# StrategIn_Test_technique
-Here is my work for Strateg'in technical test.
+# Test technique pour ma candidature chez Strateg'In
 
-You will need to run "npm i" in both frondend and back end folders.
+Here is my work for Strateg'In technical test.
 
-Start the server by entering "node server.js" in a terminal in the "./backend" directory.
+You will need to run `npm i` in both frondend and back end folders.
+
+Start the server by entering node `server.js` in a terminal in the `./backend` and  directory.
 
 You can then open any of the HTML pages from the "./frontend" directory.
