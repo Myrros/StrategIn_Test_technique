@@ -1,0 +1,12 @@
+table {
+    margin: auto;
+    border-color: black;
+}
+
+#part_not_log {
+    display: none;
+}
+
+#part_log {
+    display: none;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet"  href="index.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="users.js"></script>
+</head>
+<body>
+    <div class="flex justify-center text-center mt-10">
+        <p class="text-2xl font-bold">
+            Welcome to the Users Page.
+        </p>
+    </div>
+    <div id="part_not_log">
+        <div class="rounded-lg bg-yellow-100 flex flex-col text-center p-5 relative mt-7 m-auto w-1/3">
+            <p>You are not allowed to access this content.<br>If you wish to log in, please go to <a href="./login.html", class="underline">this page</a>.</p>
+        </div>
+    </div>
+    <div id="part_log", class="mt-7 flex justify-center text-center">
+        <table id="users_table", class="border-collapse">
+            <tr>
+                <th colspan="2">Here are all the users :</th>
+            </tr>
+            <tr>
+                <th class="border-2 border-black">Email</th>
+                <th class="border-2 border-black">ID</th>
+            </tr>
+        </table>
+        <button id="logout_button", class="w-1/3 bg-red-500 hover:bg-red-700 text-white p-2 m-7 rounded">Log Out</button>
+    </div>
+</body>
+</html>
